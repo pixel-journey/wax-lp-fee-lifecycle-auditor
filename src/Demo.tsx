@@ -1,45 +1,53 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { downloadText, exportClassifyMarkdown } from "./exportReport";
 import { classify, type Move } from "./fee";
 import { FEE_LIFE_MYTHS } from "./myths";
 
-const SCENARIOS: { id: string; label: string; moves: Move[]; windowSec: number }[] = [
+const SCENARIOS: { id: string; label: string; moves: Move[] }[] = [
   {
     id: "compound",
-    label: "Collect → add (compound)",
+    label: "Collect → add",
     moves: [
       { at: 100, kind: "collect" },
       { at: 110, kind: "add" },
     ],
-    windowSec: 30,
   },
   {
     id: "extract",
-    label: "Collect → swap (extract)",
+    label: "Collect → swap",
     moves: [
       { at: 100, kind: "collect" },
       { at: 115, kind: "swap" },
     ],
-    windowSec: 30,
   },
   {
     id: "idle",
-    label: "Collect → late swap (idle)",
+    label: "Collect → late swap",
     moves: [
       { at: 100, kind: "collect" },
       { at: 140, kind: "swap" },
     ],
-    windowSec: 30,
+  },
+  {
+    id: "double",
+    label: "Two collects, then add",
+    moves: [
+      { at: 100, kind: "collect" },
+      { at: 105, kind: "collect" },
+      { at: 110, kind: "add" },
+    ],
   },
 ];
 
 export function Demo() {
   const [id, setId] = useState("compound");
+  const [windowSec, setWindowSec] = useState(30);
   const scenario = SCENARIOS.find((s) => s.id === id) ?? SCENARIOS[0];
   const row = useMemo(
-    () => classify(scenario.moves, scenario.windowSec),
-    [scenario]
+    () => classify(scenario.moves, windowSec),
+    [scenario, windowSec]
   );
 
   return (
@@ -85,21 +93,45 @@ export function Demo() {
         ))}
       </div>
 
+      <label style={{ display: "block", marginBottom: "1rem" }}>
+        Window (seconds)
+        <input
+          type="number"
+          min={0}
+          max={86400}
+          value={windowSec}
+          onChange={(e) => setWindowSec(Number(e.target.value))}
+          style={{ display: "block", marginTop: "0.25rem" }}
+        />
+      </label>
+
       <p style={{ fontFamily: "ui-monospace, monospace", fontSize: "0.85rem" }}>
-        {scenario.moves.map((m) => `${m.at}:${m.kind}`).join(" → ")} · window{" "}
-        {scenario.windowSec}s
+        {scenario.moves.map((m) => `${m.at}:${m.kind}`).join(" → ")}
       </p>
       {row.ok ? (
-        <p>
-          compound <strong>{row.compound}</strong>, extract <strong>{row.extract}</strong>,
-          idle <strong>{row.idle}</strong>
-        </p>
+        <>
+          <p>
+            compound <strong>{row.compound}</strong>, extract{" "}
+            <strong>{row.extract}</strong>, idle <strong>{row.idle}</strong>
+          </p>
+          <button
+            type="button"
+            onClick={() =>
+              downloadText(
+                "fee-lifecycle.md",
+                exportClassifyMarkdown(scenario.moves, windowSec, row)
+              )
+            }
+          >
+            Download MD
+          </button>
+        </>
       ) : (
         <p>{row.reason}</p>
       )}
 
       <p style={{ marginTop: "2rem", fontSize: "0.85rem", opacity: 0.75 }}>
-        See POLICY.md · companions: lp-behavioral-profiler, lp-impermanent-loss-heat-map.
+        See EDUCATION.md · POLICY.md
       </p>
     </main>
   );
