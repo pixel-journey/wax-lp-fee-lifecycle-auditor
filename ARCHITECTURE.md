@@ -1,5 +1,14 @@
 # Architecture
 
-The caller labels each move collect, add, or swap. This file does not read Alcor.
+```
+moves[], windowSec
+        │
+        ▼
+   classify → compound / extract / idle / collects
+        │
+        ├── rates (bps)
+        ├── dominant
+        └── parseMoves
+```
 
-The page calls the same functions as the tests. It does not open a socket and it does not sign.
+Honesty boundary: no pool API, no wallet, no broadcast.

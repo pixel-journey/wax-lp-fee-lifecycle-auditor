@@ -1,17 +1,41 @@
-export const FEE_LIFE_MYTHS = [
+export const FEE_MYTHS = [
   {
-    myth: "This grades live Alcor fee efficiency",
+    myth: "This audits live Alcor fee claims",
     reality:
-      "It only classifies caller-supplied collect → next-move pairs inside a time window.",
+      "classify() only labels argument sequences. No pool or wallet is read.",
   },
   {
-    myth: "Extract means malicious",
+    myth: "compound means automatic reinvestment on-chain",
     reality:
-      "Extract means the next move after collect was a swap (within the window). Product context still matters.",
+      "Here it only means an add followed a collect inside the window.",
   },
   {
-    myth: "Idle means the LP did nothing forever",
+    myth: "extract proves funds left the ecosystem",
     reality:
-      "Idle means no qualifying next move inside the window, or the next event was another collect.",
+      "swap inside the window is labeled extract for teaching — not a chain proof.",
+  },
+  {
+    myth: "idle means the LP is offline forever",
+    reality:
+      "No next action, next collect, or action outside the window → idle for that collect.",
+  },
+] as const;
+
+export const GLOSSARY = [
+  {
+    term: "collect",
+    meaning: "Fee claim event in the argument stream.",
+  },
+  {
+    term: "compound",
+    meaning: "Next move is add inside windowSec.",
+  },
+  {
+    term: "extract",
+    meaning: "Next move is swap inside windowSec.",
+  },
+  {
+    term: "idle",
+    meaning: "No qualifying next move for that collect.",
   },
 ] as const;

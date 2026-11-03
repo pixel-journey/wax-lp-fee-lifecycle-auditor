@@ -1,8 +1,9 @@
 # Verification Log
 
-**Updated:** 2026-10-31
+**Updated:** 2026-11-03
 
 | Claim | Status |
 | --- | --- |
-| classify rules | unit |
-| Live pool read | out of scope |
+| classify compound/extract/idle | unit |
+| rates / dominant / parseMoves | unit |
+| Live Alcor streams | out of scope |

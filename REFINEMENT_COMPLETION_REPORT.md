@@ -1,12 +1,14 @@
-# Fee lifecycle classify
+# Full-thrust — fee lifecycle lab
 
-**Updated:** 2026-10-31
+**Updated:** 2026-11-03
 
-| Scope | Notes |
+| Area | Notes |
 |------|-------|
-| Core | classify(moves, window) |
-| Education | myths, POLICY, scenarios |
+| Engine | collects count, rates, dominant, parseMoves |
+| Tests | samples + parser |
+| Docs | EDUCATION, ARCHITECTURE, POLICY, SECURITY |
+| UI | scenarios + textarea classifier |
 
 ```bash
-npm test
+npm test && npm run dev
 ```

@@ -1,19 +1,15 @@
-# Policy — LP fee lifecycle classify
+# Policy — fee lifecycle lab
 
 **Trust label:** `educational-reference`  
-**Updated:** 2026-10-31
+**Updated:** 2026-11-03
 
 ## In scope
 
-- Pure `classify(moves, windowSec)` → compound / extract / idle counts
-- Offline demos
+- Pure `classify` / rates / dominant / parseMoves
+- Offline demo and unit tests
 
 ## Out of scope
 
-- Reading pools or Alcor history
-- Fee amount math
-- Auto-broadcast
-
-## Companion
-
-`wax-lp-behavioral-profiler` · `wax-lp-impermanent-loss-heat-map`
+- Live Alcor fee claim streams
+- Characterizing real wallets as compounders
+- Network calls from the measure path

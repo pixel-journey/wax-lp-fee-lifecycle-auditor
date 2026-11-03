@@ -1,20 +1,24 @@
-# Education — fee lifecycle
+# Education — fee lifecycle after collect
 
-## Rule
+## Pattern
 
-For each `collect` in order:
+For each `collect` in a time-ordered stream:
 
-1. Look at the **next** move (if any).
-2. If none, or gap `> windowSec`, or next is another `collect` → **idle**.
-3. If next is `add` within the window → **compound**.
-4. If next is `swap` within the window → **extract**.
+| Next move | Label |
+|-----------|--------|
+| `add` within `windowSec` | **compound** |
+| `swap` within `windowSec` | **extract** |
+| none, another collect, or outside window | **idle** |
 
-## Why it exists
+## Teaching points
 
-Product copy often says “compounding LPs” without defining the observation window. This helper forces an explicit window and a countable label.
+1. Moves are **arguments** — not Hyperion history.
+2. Labels are **heuristic teaching tags**, not legal characterizations of capital flows.
+3. `rates` floors each bucket over collect count; bps may not sum to 10000.
+4. Prefer WharfKit if a host later signs real collect/add actions.
 
-## What it does not do
+## Related
 
-- Read Alcor or any pool
-- Measure fee amounts
-- Judge morality of extract vs compound
+- `wax-lp-impermanent-loss-heat-map`
+- `wax-alcor-pool-migration-tracker`
+- `wax-lp-behavioral-profiler`
