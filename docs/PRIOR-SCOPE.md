@@ -2,7 +2,7 @@
 
 > **Status:** 🔒 Private (In Development) | Target Public Release: August 2026  
 > **Category:** Alcor & DeFi Visualizers — Concentrated Liquidity Fee Flow Analysis  
-> **Parent Catalog:** [pixel-journey/wax-ecosystem-blueprint-catalog](https://github.com/pixel-journey/wax-ecosystem-blueprint-catalog)
+> **Parent Catalog:** `wax-ecosystem-blueprint-catalog` (private index; not this public course)
 
 **A production-grade dashboard that distinguishes compounding liquidity providers (who reinvest collected fees back into positions) from extractors (who immediately swap or sell rewards), surfacing velocity metrics, efficiency grades, and behavioral archetypes using only public Alcor v2, Hyperion, and WharfKit infrastructure on WAX.**
 

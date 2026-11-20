@@ -1,7 +1,7 @@
 # What follows a collect — labels, not a pool read
 
 > **Trust:** `educational-reference`  
-> **Catalog:** [wax-ecosystem-blueprint-catalog](https://github.com/pixel-journey/wax-ecosystem-blueprint-catalog)
+> **Catalog:** `wax-ecosystem-blueprint-catalog` (private index; not this public course)
 
 **One-sentence goal:** Teach a time-window classifier that tags the move after a collect as compound, extract, or idle — from arguments you pass, not from Alcor.
 
@@ -53,8 +53,9 @@ npm run dev
 
 ## Related
 
-- `wax-lp-impermanent-loss-heat-map`
-- `wax-alcor-pool-migration-tracker`
-- `wax-lp-behavioral-profiler`
+- [wax-lp-impermanent-loss-heat-map](https://github.com/pixel-journey/wax-lp-impermanent-loss-heat-map)
+- [wax-alcor-pool-migration-tracker](https://github.com/pixel-journey/wax-alcor-pool-migration-tracker)
+- [fee splitter](https://github.com/pixel-journey/px-treasury-incoming-fee-splitter) — the place that *does* require bps to sum to 10000
+- Not an Alcor history read: [alcor-exchange](https://github.com/alcor-exchange). `wax-lp-behavioral-profiler` is still private.
 
 MIT — Pixel Journey
