@@ -56,6 +56,6 @@ npm run dev
 - [wax-lp-impermanent-loss-heat-map](https://github.com/pixel-journey/wax-lp-impermanent-loss-heat-map)
 - [wax-alcor-pool-migration-tracker](https://github.com/pixel-journey/wax-alcor-pool-migration-tracker)
 - [fee splitter](https://github.com/pixel-journey/px-treasury-incoming-fee-splitter) — the place that *does* require bps to sum to 10000
-- Not an Alcor history read: [alcor-exchange](https://github.com/alcor-exchange). `wax-lp-behavioral-profiler` is still private.
+- Not an Alcor history read: [alcor-exchange](https://github.com/alcor-exchange). The move count is [wax-lp-behavioral-profiler](https://github.com/pixel-journey/wax-lp-behavioral-profiler). Equal adds and removes are `steady`.
 
 MIT — Pixel Journey
